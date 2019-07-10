@@ -1,0 +1,5 @@
+---
+- name: install dnsmasq
+  package:
+    name: dnsmasq
+    state: present

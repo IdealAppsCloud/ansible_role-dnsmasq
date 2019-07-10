@@ -1,0 +1,13 @@
+---
+- name: create dnsmasq directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: ec2-user
+  with_items:
+    - "{{ dnsmasq_config_dir }}"
+
+- name: create main configuration file
+  copy:
+    dest: "{{ dnsmasq_config_dir }}/00-main"
+    content: "{{ dnsmasq_config }}"
